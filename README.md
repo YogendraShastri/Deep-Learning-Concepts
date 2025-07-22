@@ -8,6 +8,11 @@ We gonna learn about some important deep learning concepts, one must know.....
 
 <img width="926" height="384" alt="image" src="https://github.com/user-attachments/assets/207acff1-9d73-4414-9f01-8e057bd0be2e" />
 
+- Here in this Example image, we represent single neuron. and sigmoid as activation function.
+- As input you provide **Age** and output you will get if greater than 0.5 Person will buy insurance, or otherwise.
+
+<img width="926" height="384" alt="image" src="https://github.com/user-attachments/assets/ae112851-61de-430b-badd-9db6301aed0f" />
+
 ##  Why “Deep” in Deep Learning?
 The "**deep**" in Deep Learning comes from the many layers in the neural network:
 1. **Input Layer**: Takes in the raw data (e.g., pixels in an image).
