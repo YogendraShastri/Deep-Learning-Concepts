@@ -105,3 +105,7 @@ x, & \text{if } x > 0 \\
 \end{cases}
 $$
 
+<img width="492" height="314" alt="image" src="https://github.com/user-attachments/assets/2c0229e9-9659-4537-b1c0-20499e55612b" />
+
+
+
