@@ -18,3 +18,90 @@ The "**deep**" in Deep Learning comes from the many layers in the neural network
 1. **Input Layer**: Takes in the raw data (e.g., pixels in an image).
 2. **Hidden Layers**: Multiple layers where learning happens by adjusting weights.
 3. **Output Layer**: Produces the final prediction/classification.
+
+## Activation Function
+- Activation function in a neural network is a mathematical function which indicates if a perticular neuron is activated or not.
+- It introduces non-linearity into the network, allowing it to learn complex patterns in data.
+- To learn complex patterns, neural networks need non-linear functions, and that's exactly what activation functions provide. in other words activation function helps the network learn complex patterns, such as non-linear relationships between features and outputs.
+
+### Types of Activation Functions 
+1. Linear Activation Function
+2. Sigmoid Function (Non linear)
+3. Tanh Activation Function (Non Linear)
+4. ReLU (Rectified Linear Unit)
+
+### 1. Linear Activation Function
+- A Linear Activation Function is the simplest type of activation used in neural networks. It does not modify the input—it just passes it through as output.
+- Outputs the input value directly, Useful in the output layer for regression tasks where the output can take any real value.
+- Using a linear activation in hidden layers makes the whole neural network equivalent to just one linear transformation.
+
+$$
+f(x) = x
+$$
+
+- **Diagram**
+<img width="400" height="300" alt="image" src="https://github.com/user-attachments/assets/19f4c1ed-3b3a-4f24-93a6-2e94f58ff81d" />
+
+### 2. Sigmoid Function
+- The sigmoid activation function is a mathematical function which maps any input value to a range between 0 and 1, producing an "S" shaped curve.
+- Commonly used in the output layer for binary classification tasks.
+
+$$
+\sigma(x) = \frac{1}{1 + e^{-x}}
+$$
+
+- **Diagram**
+<img width="460" height="260" alt="image" src="https://github.com/user-attachments/assets/14d20f40-3922-40fe-9854-72fe6cd829a3" />
+
+### 3. Tanh Activation Function
+- The Tanh activation function is a non-linear function that transforms inputs into a range between -1 and 1, unlike sigmoid function which maps between range 0 to 1.
+- Commonly used in the hidden layers.
+- Preferred over sigmoid because outputs are zero-centered.
+
+$$
+f(x) = \tanh(x) = \frac{e^{x} - e^{-x}}{e^{x} + e^{-x}}
+$$
+
+- **Diagram**
+<img width="488" height="250" alt="image" src="https://github.com/user-attachments/assets/dcfb261d-09e6-4763-8923-373b8be5a11c" />
+
+
+#### Zero-Centered
+The function's output is symmetrical around zero, meaning negative inputs are mapped to negative outputs and positive inputs to positive outputs.
+- Positive input ⇒ Positive output
+- Negative input ⇒ Negative output
+- Input = 0 ⇒ Output ≈ 0
+This behavior makes the outputs symmetrical around zero, helping the neural network balance updates during training.
+
+### 4.1 ReLu Activation Function
+- It introduces non-linearity, allowing the network to learn complex patterns, and is defined as f(x) = max(0, x).
+- This means, if the input value is positive it will take the positive value or if input is negative output will be 0.
+
+$$
+\text{ReLU}(x) = \max(0, x)
+$$
+
+                                                    This means:
+                                                    - If x>0, output is 𝑥
+                                                    - If x≤0, output is 0
+
+- Relu is good for hidden layers, but as it produces output 0 for every negative value, which causes a problem called **dying ReLu**.
+
+- **Diagram**
+<img width="488" height="268" alt="image" src="https://github.com/user-attachments/assets/80965a58-e942-478d-a9ee-aec409118e5e" />
+
+**Dying ReLU Problem**: 
+If many neurons receive negative input during training, they may get stuck outputting 0 permanently.This means the neuron is not contributing to the network's learning process, and the gradient is zero during backpropagation,preventing the neuron's weights from being updated.
+
+### 4.2 Leaky ReLU
+- Leaky ReLU is a modified version of ReLU designed to fix the "dying ReLU" problem.
+- Unlike ReLU, which outputs zero for all negative inputs, Leaky ReLU allows a small, non-zero gradient when the input is negative. which helps neurons to be active during training.
+
+$$
+\text{Leaky ReLU}(x) =
+\begin{cases}
+x, & \text{if } x > 0 \\
+0.01 \cdot x, & \text{if } x \leq 0
+\end{cases}
+$$
+
