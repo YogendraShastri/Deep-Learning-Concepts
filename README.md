@@ -107,5 +107,60 @@ $$
 
 <img width="492" height="314" alt="image" src="https://github.com/user-attachments/assets/2c0229e9-9659-4537-b1c0-20499e55612b" />
 
+## Batch Gradient Descent and Stochastic Gradient Descent: 
+- **Batch Gradient Descent (BGD)** and **Stochastic Gradient Descent (SGD)** are key optimization technique for reducing the **cost function** in machine learning, commonly applied in training models such as linear regression, logistic regression, and neural networks.
+- These variants differ mainly in how they process data and optimize the model parameters.
+
+### Batch Gradient Descent
+- It computes the **gradient of the cost function** with respect to the model parameters using the **entire training dataset** in each iteration.
+- While this method provides an accurate gradient calculation, it can become computationally intensive with very large datasets.
+
+### Step-by-Step Process of Batch Gradient Descent
+- **1.Initialize Weights and Biases:**
+Assign initial values to the model’s parameters (weights and biases). These are typically initialized randomly or set to small values.
+
+- **2.Compute Predictions:**
+Use the current weights and biases to compute predictions for the entire training dataset. For each data point (xi, yi) in the dataset (where xi is the input and yi is the true output), calculate the predicted output yi.
+
+- **3.Calculate the Cost & Gradients**
+Compute the cost function (also loss function) using the predictions and true outputs across the entire dataset.
+
+- **4.Update Weights and Biases**
+Adjust the parameters in the direction that reduces the cost function, using the gradients and a learning rate.
+
+$$w = w - \eta \cdot \frac{\partial J}{\partial w}$$
+$$b = b - \eta \cdot \frac{\partial J}{\partial b}$$
+
+- **5.Repeat Until Convergence**
+Continue iterating through all above mentioned Steps for a set number of iterations (epochs) or until the cost function stops decreasing significantly.
+
+<p align="center">
+<img width="416" height="374" alt="image" src="https://github.com/user-attachments/assets/12cb6820-829f-4939-94d5-e79a44007d50" />
+</p>
+
+### Stochastic Gradient Descent
+- Unlike Batch Gradient Descent (BGD), which processes the entire dataset in each iteration, SGD updates the model parameters using one randomly selected data point at a time.
+- This makes the algorithm much faster since only a small fraction of the data is processed at each step.
+- SGD is particularly useful when dealing with large datasets, where processing the entire dataset at once is computationally expensive.
+
+### Step-by-Step Process of Stochastic Gradient Descent
+-**1. Initialize Weights and Biases** :
+same as batch.
+
+-**2. Select a Random Data Point and Compute Predicted Value** :
+Select a Random Data Point (xi,yi) from the training dataset. And Use the current weights and biases to compute the prediction.
+
+-**3. Compute Gradients for the Selected Point**:
+Calculate the gradient of the loss with respect to each parameter (weights and biases) using only the selected data point.
+
+-**4. Update Weights and Biases**:
+Adjust the parameters using the gradients and a learning rate.
+
+-**5. Repeat Until Convergence**:
+Repeat all Steps 1–4 for each data point in the dataset, typically in a random order.
+
+<p align="center">
+<img width="496" height="350" alt="image" src="https://github.com/user-attachments/assets/16f1c33e-7daa-4f17-a005-b502e3027116" />
+</p>
 
 
