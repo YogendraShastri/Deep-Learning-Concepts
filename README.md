@@ -163,4 +163,15 @@ Repeat all Steps 1–4 for each data point in the dataset, typically in a random
 <img width="496" height="350" alt="image" src="https://github.com/user-attachments/assets/16f1c33e-7daa-4f17-a005-b502e3027116" />
 </p>
 
+### Dropout Regularization:
+- Dropout is a powerful regularization technique widely used in deep learning to prevent overfitting in neural networks.
+- Overfitting happens when a model captures not only the underlying patterns in the training data but also the noise and random fluctuations, resulting in poor generalization to new, unseen data.
+- To prevent that, we drop some of the neurons in the hidden layers, so that model do not fit too well and cause overfitting problem.
+- Dropout helps address this by introducing randomness during the training process.
+- We can add dropout rate like 0.5 for 50% neuron dropout, we can set any percentage 0.3 etc.
+
+**Diagram**
+
+<img width="1062" height="640" alt="image" src="https://github.com/user-attachments/assets/2c8ac064-9bcd-4715-8e09-c98fddbf9282" />
+
 
