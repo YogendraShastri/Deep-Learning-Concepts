@@ -174,4 +174,4 @@ Repeat all Steps 1–4 for each data point in the dataset, typically in a random
 
 <img width="1062" height="640" alt="image" src="https://github.com/user-attachments/assets/2c8ac064-9bcd-4715-8e09-c98fddbf9282" />
 
-
+**Notebook** : [drop_out_regularization.ipynb](drop_out_regularization.ipynb)
