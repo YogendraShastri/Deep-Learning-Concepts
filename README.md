@@ -29,6 +29,7 @@ The "**deep**" in Deep Learning comes from the many layers in the neural network
 2. Sigmoid Function (Non linear)
 3. Tanh Activation Function (Non Linear)
 4. ReLU (Rectified Linear Unit)
+5. Softmax
 
 ### 1. Linear Activation Function
 - A Linear Activation Function is the simplest type of activation used in neural networks. It does not modify the input—it just passes it through as output.
@@ -106,6 +107,49 @@ x, & \text{if } x > 0 \\
 $$
 
 <img width="492" height="314" alt="image" src="https://github.com/user-attachments/assets/2c0229e9-9659-4537-b1c0-20499e55612b" />
+
+### 5. Softmax
+- The **Softmax function** is commonly used in the output layer of a neural network for multi-class classification problems.
+- **multi-class classification** problem : in this problem we categorize instances into three or more classes.
+<img width="728" height="452" alt="image" src="https://github.com/user-attachments/assets/dd1dc16d-22b0-4741-9409-756f9f153d33" />
+- Softmax takes a vector of real numbers (**logits**), which can be positive, negative, or zero, and converts them into a vector of probabilities.
+- Each element in the output vector is between 0 and 1, and the sum of all elements equals 1.
+
+$$
+\sigma(z_i) = \frac{e^{z_i}}{\sum_{j=1}^{n} e^{z_j}}
+$$
+
+#### How it works:
+- lets suppose you're building a neural network to predict someone's favorite ice cream flavor. and there are three options we have **[Chocolate, vanila, Strawberry]** and The model outputs these raw scores **(logits) [3.0, 1.0, 0.2]**.
+- Exponentiate each logit :
+
+$$
+e^{3.0} \approx 20.085 \\ ,
+e^{1.0} \approx 2.718 \\ ,
+e^{0.2} \approx 1.221
+$$
+
+- Sum the exponentiated values: (20.085+2.718+1.221=24.024)
+- Normalize to get probabilities:
+
+$$
+\frac{20.085}{24.024} \approx 0.836 \\ , 
+\frac{2.718}{24.024} \approx 0.113 \\ ,
+\frac{1.221}{24.024} \approx 0.051
+$$
+
+- Final Prediction (Probabilities): **[0.836, 0.113, 0.051]**, This means the model is **83.6%** confident that the person prefers **Chocolate**.
+
+**Code**:
+```python
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+
+model = Sequential([
+    Dense(64, activation='relu'),
+    Dense(3, activation='softmax')  # 3 output classes
+])
+```
 
 ## Batch Gradient Descent and Stochastic Gradient Descent: 
 - **Batch Gradient Descent (BGD)** and **Stochastic Gradient Descent (SGD)** are key optimization technique for reducing the **cost function** in machine learning, commonly applied in training models such as linear regression, logistic regression, and neural networks.
