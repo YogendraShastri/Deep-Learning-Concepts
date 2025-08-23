@@ -219,3 +219,68 @@ Repeat all Steps 1–4 for each data point in the dataset, typically in a random
 <img width="1062" height="640" alt="image" src="https://github.com/user-attachments/assets/2c8ac064-9bcd-4715-8e09-c98fddbf9282" />
 
 **Notebook** : [drop_out_regularization.ipynb](drop_out_regularization.ipynb)
+
+### The Chain Rule : 
+- In calculus, the chain rule is used to find the derivative of a **composite function**.
+- And deep neural networks are essentially **composite functions**, where each layer applies a transformation to the output of the previous layer. The final output of the network is a result of these all transformations.
+- So if the function h(x) is the composition of other functions
+
+$$
+y = h(x) = f\big(g(x)\big)
+$$
+
+- Then, the derivative of h(x), for simplycity for y w. r. t. x is : 
+
+$$
+\frac{dy}{dx} = \frac{df}{dg} \cdot \frac{dg}{dx}
+$$
+
+
+### Chain Rule Example
+- If we have a function like (3x+2)^2 , it can be tricky to differentiate it directly.So, to make it easier, we assume g=3x+2. Now, the function becomes g^2, whose derivative is 2g. Finally, we find the derivative of g with respect to x, which is 3,and multiply them together: 2g*3 = 6(3x+2).
+
+$$
+y = (3x + 2)^2
+$$
+
+$$
+g(x) = 3x + 2, \quad f(g) = g^2
+$$
+
+$$
+\frac{dy}{dx} = \frac{df}{dg} \cdot \frac{dg}{dx}
+$$
+
+$$
+\frac{df}{dg} = 2g = 2(3x + 2), \qquad \frac{dg}{dx} = 3
+$$
+
+$$
+\frac{dy}{dx} = 2(3x + 2)\cdot 3 = 6(3x + 2) = 18x + 12
+$$
+
+### How Chain rule works in Deep Learning?
+- To train the network, we compute gradients of the loss function L with respect to weights W using back propagation.
+- Let’s say we have a 3-layer neural network:
+
+$$
+y = f_3\big(f_2(f_1(x))\big)
+$$
+
+**Where:**
+- \( f1 \) = first layer  
+- \( f2 \) = second layer  
+- \( f3 \) = third layer  
+- \( y \) = final output
+
+- using Chain rule :
+
+$$
+\frac{\partial W_1}{\partial L} =
+\frac{\partial y}{\partial L} \cdot
+\frac{\partial f_2}{\partial y} \cdot
+\frac{\partial f_1}{\partial f_2} \cdot
+\frac{\partial W_1}{\partial f_1}
+$$
+
+### Back Propagation
